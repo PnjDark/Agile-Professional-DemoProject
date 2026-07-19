@@ -57,8 +57,8 @@ export default function Dashboard({ tasks }) {
             <input placeholder="Search projects, tasks, or team members..." />
           </div>
           <div className="top-actions">
-            <button className="icon-btn">🔔</button>
-            <button className="icon-btn">👤</button>
+            <a href="/login" className="icon-btn" title="Log in">👤</a>
+            <a href="/register" className="primary-btn" style={{ padding: '8px 12px' }}>Register</a>
           </div>
         </header>
 

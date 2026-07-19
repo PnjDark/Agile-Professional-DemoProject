@@ -1,6 +1,7 @@
 import os
 import asyncio
 from fastapi import FastAPI, HTTPException, Depends
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import asyncpg
 from passlib.context import CryptContext
@@ -12,9 +13,22 @@ JWT_SECRET = os.getenv('JWT_SECRET', 'supersecretkey')
 ALGORITHM = 'HS256'
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+pwd_context = CryptContext(schemes=["pbkdf2_sha256"], deprecated="auto")
 
 app = FastAPI()
+
+# CORS for local development (adjust origins for production)
+origins = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class RegisterIn(BaseModel):
     name: str
@@ -32,7 +46,18 @@ class Token(BaseModel):
 
 async def get_db_pool():
     if not hasattr(app.state, 'db_pool'):
-        app.state.db_pool = await asyncpg.create_pool(DATABASE_URL)
+        # Retry loop to wait for Postgres to become ready
+        last_exc = None
+        for attempt in range(10):
+            try:
+                app.state.db_pool = await asyncpg.create_pool(DATABASE_URL)
+                last_exc = None
+                break
+            except Exception as exc:
+                last_exc = exc
+                await asyncio.sleep(1)
+        if last_exc:
+            raise RuntimeError(f"Could not connect to the database: {last_exc}")
     return app.state.db_pool
 
 @app.on_event('startup')
