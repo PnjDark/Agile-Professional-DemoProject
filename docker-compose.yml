@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_PASSWORD: password
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5432:5432"
+
+  postgrest:
+    image: postgrest/postgrest:latest
+    depends_on:
+      - db
+    volumes:
+      - ./postgrest/postgrest.conf:/etc/postgrest.conf:ro
+    command: ["postgrest", "/etc/postgrest.conf"]
+    ports:
+      - "3001:3001"
+
+  api:
+    build: ./api
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/postgres
+      - JWT_SECRET=supersecretkey
+    ports:
+      - "8000:8000"
+
+  web:
+    build: ./web
+    depends_on:
+      - postgrest
+    ports:
+      - "3000:3000"
+
+volumes:
+  db_data:
