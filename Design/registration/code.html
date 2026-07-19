@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Register | StudentManager</title>
+<!-- Google Fonts: Manrope for Headlines, Inter for Body -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "priority-high": "#EF4444",
+                    "on-tertiary-fixed-variant": "#7d2d00",
+                    "on-tertiary-container": "#ffede6",
+                    "surface-bright": "#faf8ff",
+                    "on-surface-variant": "#434655",
+                    "tertiary-container": "#bc4800",
+                    "surface-container-low": "#f3f3fe",
+                    "surface-tint": "#0053db",
+                    "status-todo": "#94A3B8",
+                    "on-error": "#ffffff",
+                    "on-background": "#191b23",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed": "#00174b",
+                    "background": "#faf8ff",
+                    "status-done": "#10B981",
+                    "primary-container": "#2563eb",
+                    "secondary-container": "#d5e3fc",
+                    "primary-fixed": "#dbe1ff",
+                    "status-progress": "#F59E0B",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#eeefff",
+                    "priority-low": "#3B82F6",
+                    "on-tertiary": "#ffffff",
+                    "on-surface": "#191b23",
+                    "secondary-fixed-dim": "#b9c7df",
+                    "inverse-primary": "#b4c5ff",
+                    "secondary-fixed": "#d5e3fc",
+                    "on-secondary-container": "#57657a",
+                    "on-secondary-fixed": "#0d1c2e",
+                    "primary": "#004ac6",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "on-tertiary-fixed": "#360f00",
+                    "on-secondary-fixed-variant": "#3a485b",
+                    "tertiary-fixed": "#ffdbcd",
+                    "surface-container-highest": "#e1e2ed",
+                    "tertiary": "#943700",
+                    "surface-container-high": "#e7e7f3",
+                    "outline-variant": "#c3c6d7",
+                    "surface-container": "#ededf9",
+                    "surface-variant": "#e1e2ed",
+                    "inverse-surface": "#2e3039",
+                    "inverse-on-surface": "#f0f0fb",
+                    "error": "#ba1a1a",
+                    "secondary": "#515f74",
+                    "surface": "#faf8ff",
+                    "priority-medium": "#F97316",
+                    "tertiary-fixed-dim": "#ffb596",
+                    "outline": "#737686",
+                    "surface-dim": "#d9d9e5",
+                    "primary-fixed-dim": "#b4c5ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max-width": "1280px",
+                    "margin-mobile": "1rem",
+                    "stack-gap": "1rem",
+                    "gutter": "1.5rem",
+                    "margin-desktop": "2rem",
+                    "section-gap": "2.5rem"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Manrope"],
+                    "body-md": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Manrope"],
+                    "headline-xl": ["Manrope"],
+                    "headline-md": ["Manrope"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-xl": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
+                    "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #faf8ff;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        /* Custom Academic Mesh Background */
+        .academic-mesh {
+            background-color: #faf8ff;
+            background-image: radial-gradient(#dbe1ff 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="academic-mesh min-h-screen flex items-center justify-center p-margin-mobile md:p-margin-desktop">
+<!-- Main Registration Container -->
+<main class="w-full max-w-[500px] animate-in fade-in slide-in-from-bottom-4 duration-700">
+<!-- Registration Card -->
+<div class="bg-surface-container-lowest border border-outline-variant shadow-sm rounded-xl overflow-hidden">
+<!-- Card Header & Branding -->
+<div class="p-8 text-center border-b border-outline-variant/30">
+<div class="flex flex-col items-center gap-2 mb-6">
+<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-3xl">school</span>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">StudentManager</h1>
+<p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Academic Projects</p>
+</div>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Create Your Account</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Register to start managing tasks and projects</p>
+</div>
+<!-- Registration Form -->
+<form class="p-8 space-y-5" onsubmit="return false;">
+<!-- Full Name -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="full_name">Full name</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">person</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface border border-outline-variant rounded-lg text-body-md focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" id="full_name" placeholder="Enter your full name" type="text"/>
+</div>
+</div>
+<!-- Email Address -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="email">Email address</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">mail</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface border border-outline-variant rounded-lg text-body-md focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" id="email" placeholder="name@university.edu" type="email"/>
+</div>
+</div>
+<!-- Password Fields Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Password -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="password">Password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">lock</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface border border-outline-variant rounded-lg text-body-md focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Confirm Password -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="confirm_password">Confirm password</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">lock_reset</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface border border-outline-variant rounded-lg text-body-md focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" id="confirm_password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+</div>
+<!-- Role Selection -->
+<div class="space-y-1.5">
+<label class="font-label-md text-label-md text-on-surface" for="role">Select your role</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">badge</span>
+<select class="w-full pl-10 pr-10 py-2.5 bg-surface border border-outline-variant rounded-lg text-body-md appearance-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none" id="role">
+<option disabled="" selected="" value="">Choose your professional role</option>
+<option value="Administrator">Administrator</option>
+<option value="Project Manager">Project Manager</option>
+<option value="Team Member">Team Member</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Terms and Conditions (Interactivity Enhancement) -->
+<div class="flex items-start gap-3 py-2">
+<input class="mt-1 w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary/20" id="terms" type="checkbox"/>
+<label class="font-body-md text-label-sm text-on-surface-variant" for="terms">
+                        I agree to the <a class="text-primary hover:underline" href="#">Terms of Service</a> and <a class="text-primary hover:underline" href="#">Privacy Policy</a>.
+                    </label>
+</div>
+<!-- Primary Button -->
+<button class="w-full bg-primary text-on-primary font-label-md py-3 rounded-lg shadow-sm hover:bg-primary/90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 group" type="submit">
+                    Register
+                    <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<!-- Divider -->
+<div class="relative flex items-center py-2">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="flex-shrink mx-4 font-label-sm text-outline">OR</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<!-- Social Registration Placeholder -->
+<button class="w-full border border-outline-variant bg-surface-container-lowest text-on-surface font-label-md py-2.5 rounded-lg hover:bg-surface-variant transition-colors flex items-center justify-center gap-3" type="button">
+<img class="w-5 h-5" data-alt="The colorful Google G logo icon on a transparent background, high resolution and clean professional look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEchOHKT8ownbV-3Ajl4l0WEHq8qR_HEetvjhXrR_QGRLPV5UmnILCb3mvlqe96Ar77oG_xgh62vlM2Ipdtp9L0O2PluwO2-0m4vKmU0jyJqot17i-YWZKoyI3jJ2ODhOzZ2IXQ9g1wB4_PelqVMR-UtFSvYx9_xuFwGlL-G8qI7vpdM6Ks88oA1YY3H0DV7A3bYtObBuHnhU7TVCl2sileyHPEs1-nen-sGnzQG-1N249oHzPyJBIBMs5No0HB92JQN4LeE87ZrM"/>
+                    Sign up with University Account
+                </button>
+</form>
+<!-- Footer Link -->
+<div class="bg-surface-container-low p-6 text-center border-t border-outline-variant/30">
+<p class="font-body-md text-on-surface-variant">
+                    Already have an account? 
+                    <a class="text-primary font-label-md hover:underline ml-1" href="#">Log in</a>
+</p>
+</div>
+</div>
+<!-- Footer Visual/Info -->
+<footer class="mt-8 text-center space-y-4">
+<div class="flex justify-center gap-6 opacity-60">
+<div class="flex items-center gap-1.5 font-label-sm text-outline">
+<span class="material-symbols-outlined text-sm">shield</span> Secure
+                </div>
+<div class="flex items-center gap-1.5 font-label-sm text-outline">
+<span class="material-symbols-outlined text-sm">verified</span> Academic Certified
+                </div>
+</div>
+<p class="font-label-sm text-outline">© 2024 StudentManager. All rights reserved.</p>
+</footer>
+</main>
+<!-- Background Decoration Elements -->
+<div class="fixed top-[-10%] right-[-5%] w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -z-10"></div>
+<div class="fixed bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-secondary-container/30 rounded-full blur-[100px] -z-10"></div>
+<script>
+        // Micro-interaction: Form Validation Visual Cue
+        const inputs = document.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                const parent = input.closest('.relative');
+                if(parent) {
+                    const icon = parent.querySelector('.material-symbols-outlined');
+                    if(icon) icon.classList.add('text-primary');
+                }
+            });
+            input.addEventListener('blur', () => {
+                const parent = input.closest('.relative');
+                if(parent) {
+                    const icon = parent.querySelector('.material-symbols-outlined');
+                    if(icon) icon.classList.remove('text-primary');
+                }
+            });
+        });
+
+        // Simple form submission animation
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            const btn = form.querySelector('button[type="submit"]');
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">progress_activity</span> Processing...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = 'Account Created!';
+                btn.classList.remove('bg-primary');
+                btn.classList.add('bg-status-done');
+            }, 1500);
+        });
+    </script>
+</body></html>

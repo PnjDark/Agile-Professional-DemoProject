@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>To-Create — Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app">
+    <section id="auth-section" class="panel">
+      <h1 id="auth-title">Welcome</h1>
+      <div id="login-form">
+        <input id="email" placeholder="Email" />
+        <input id="password" type="password" placeholder="Password" />
+        <button id="login-btn">Log In</button>
+        <button id="goto-register">Register</button>
+        <p id="auth-msg" class="msg"></p>
+      </div>
+      <div id="register-form" style="display:none">
+        <input id="reg-name" placeholder="Full name" />
+        <input id="reg-email" placeholder="Email" />
+        <input id="reg-password" type="password" placeholder="Password" />
+        <select id="reg-role">
+          <option>Team Member</option>
+          <option>Project Manager</option>
+          <option>Administrator</option>
+        </select>
+        <button id="register-btn">Register</button>
+        <button id="goto-login">Back to Login</button>
+        <p id="reg-msg" class="msg"></p>
+      </div>
+    </section>
+
+    <section id="dashboard" class="panel" style="display:none">
+      <header>
+        <h1>Project Dashboard</h1>
+        <div>
+          <span id="user-info"></span>
+          <button id="logout-btn">Log out</button>
+        </div>
+      </header>
+
+      <div class="controls">
+        <input id="search" placeholder="Search tasks" />
+        <button id="add-task-btn">Add Task</button>
+      </div>
+
+      <section id="task-list"></section>
+
+      <div id="task-modal" class="modal" style="display:none">
+        <div class="modal-inner">
+          <h2 id="modal-title">New Task</h2>
+          <input id="task-title" placeholder="Task title" />
+          <textarea id="task-desc" placeholder="Task description"></textarea>
+          <select id="task-priority">
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+          </select>
+          <div class="modal-actions">
+            <button id="save-task-btn">Save</button>
+            <button id="cancel-task-btn">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
